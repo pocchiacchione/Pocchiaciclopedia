@@ -483,6 +483,126 @@ sup a { color: var(--link); }
 </style>
 </head>
 <body>
+<!-- ═══════ GATE PASSWORD ═══════ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+#pw-gate {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', monospace;
+  color: #33ff33;
+  text-align: center;
+  padding: 20px;
+}
+
+#pw-gate.hidden { display: none; }
+
+#pw-gate .pw-prompt {
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+
+#pw-gate .pw-cursor {
+  display: inline-block;
+  animation: pw-blink 1s step-end infinite;
+}
+
+@keyframes pw-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+#pw-gate input {
+  background: #000;
+  border: 2px solid #33ff33;
+  color: #33ff33;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  padding: 10px;
+  text-align: center;
+  width: 260px;
+  max-width: 80vw;
+  outline: none;
+  letter-spacing: 2px;
+}
+
+#pw-gate .pw-error {
+  color: #ff3333;
+  font-size: 11px;
+  margin-top: 16px;
+  visibility: hidden;
+}
+
+#pw-gate .pw-error.show { visibility: visible; }
+
+#pw-gate .pw-footer {
+  position: fixed;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  font-size: 9px;
+  color: #33ff33;
+}
+
+#pw-gate .pw-censor {
+  background: #000;
+  color: #000;
+  user-select: none;
+  padding: 0 4px;
+}
+</style>
+
+<div id="pw-gate">
+  <div class="pw-prompt">ACCESSO RISERVATO<br/>INSERISCI PASSWORD<span class="pw-cursor">_</span></div>
+  <input id="pw-input" type="password" autocomplete="off" autofocus="autofocus"/>
+  <div class="pw-error" id="pw-error">✖ PASSWORD ERRATA</div>
+  <div class="pw-footer">crittografato da Dr. A. S. <span class="pw-censor">Spisso</span></div>
+</div>
+
+<script>
+(function () {
+  var GATE_PASSWORD = "spissecchione";
+  var gate = document.getElementById('pw-gate');
+  var input = document.getElementById('pw-input');
+  var error = document.getElementById('pw-error');
+
+  if (sessionStorage.getItem('pocchia-unlocked') === 'true') {
+    gate.classList.add('hidden');
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
+
+  function tryUnlock() {
+    if (input.value === GATE_PASSWORD) {
+      sessionStorage.setItem('pocchia-unlocked', 'true');
+      gate.classList.add('hidden');
+      document.body.style.overflow = '';
+    } else {
+      error.classList.add('show');
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') tryUnlock();
+  });
+
+  window.addEventListener('load', function () {
+    input.focus();
+  });
+})();
+</script>
+<!-- ═══════ FINE GATE PASSWORD ═══════ -->
+
 <!-- HEADER -->
 <div id="wiki-top">
 <div id="wiki-top-inner">
@@ -535,6 +655,11 @@ sup a { color: var(--link); }
   <div class="sb-section">
     <h4>Navigazione</h4>
     <a onclick="navigateTo('Main')">Pagina principale</a>
+  </div>
+
+  <div class="sb-section">
+    <h4>Progetti collegati</h4>
+    <a href="https://pocchiacchione.github.io/Enciclopocchiedia/#Main" target="_blank" rel="noopener" style="display:inline-block;padding:6px 10px;border:1px solid var(--accent);border-radius:3px;color:var(--accent);font-weight:600;text-decoration:none;">🌐 Vai all'Enciclopocchiedia</a>
   </div>
 
   <div class="sb-section">
