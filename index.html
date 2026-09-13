@@ -574,7 +574,7 @@ sup a { color: var(--link); }
   var input = document.getElementById('pw-input');
   var error = document.getElementById('pw-error');
 
-  if (sessionStorage.getItem('pocchia-unlocked') === 'true') {
+  if (localStorage.getItem('pocchia-unlocked') === 'true') {
     gate.classList.add('hidden');
   } else {
     document.body.style.overflow = 'hidden';
@@ -590,7 +590,7 @@ sup a { color: var(--link); }
   async function tryUnlock() {
     var hash = await sha256(input.value);
     if (hash === GATE_PASSWORD_HASH) {
-      sessionStorage.setItem('pocchia-unlocked', 'true');
+      localStorage.setItem('pocchia-unlocked', 'true');
       gate.classList.add('hidden');
       document.body.style.overflow = '';
     } else {
