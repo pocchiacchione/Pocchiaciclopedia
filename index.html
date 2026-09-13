@@ -585,6 +585,19 @@ sup a { color: var(--link); }
   opacity: 1;
   transition: opacity 0.35s ease;
 }
+
+.cmd-cursor {
+  display: inline-block;
+  color: #33ff33;
+  animation: pw-blink 1s step-end infinite;
+}
+
+.censor-black {
+  background: #000;
+  color: #000;
+  user-select: none;
+  padding: 0 4px;
+}
 </style>
 
 <div id="pw-gate">
@@ -6809,17 +6822,120 @@ function injectCitazioni(name) {
 
 function creaPaginaDelGiorno() {
     // La "pagina del giorno" è stata rimossa: al suo posto, nello stesso
-    // riquadro, un annuncio.
+    // riquadro, un annuncio cliccabile.
     const container = document.getElementById('daily-box-container');
     if (!container) return;
 
     container.innerHTML = `
-        <div style="border:1px solid #000; background:#000; margin-bottom:20px; overflow:hidden; padding:36px 16px; display:flex; align-items:center; justify-content:center; min-height:108px;">
+        <div id="fine-box" onclick="avviaEliminazionePagina()" style="border:1px solid #000; background:#000; margin-bottom:20px; overflow:hidden; padding:36px 16px; display:flex; align-items:center; justify-content:center; min-height:108px; cursor:pointer;">
             <div style="font-family:'Press Start 2P', monospace; font-size:15px; line-height:2; color:#33ff33; text-align:center; letter-spacing:1px;">
-                LA FINE DELLA<br>POCCHIACICLOPEDIA
+                LA FINE DELLA<br>POCCHIACICLOPEDIA<span class="cmd-cursor">_</span>
             </div>
         </div>
     `;
+}
+
+// ── Sequenza "eliminazione pagina": griglia di quadrati neri al contrario
+// (la pagina sparisce sotto i quadrati, invece dei quadrati che svelano la
+// pagina come nel gate iniziale), poi un messaggio in stile terminale, poi
+// reset completo dell'accesso.
+function avviaEliminazionePagina() {
+    if (document.getElementById('cover-grid')) return; // già in corso
+
+    document.body.style.overflow = 'hidden';
+
+    const cols = 12, rows = 8;
+    const overlay = document.createElement('div');
+    overlay.id = 'cover-grid';
+    overlay.style.position = 'fixed';
+    overlay.style.inset = '0';
+    overlay.style.zIndex = '2147483000';
+    overlay.style.display = 'grid';
+    overlay.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    overlay.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+    document.body.appendChild(overlay);
+
+    const cells = [];
+    for (let i = 0; i < cols * rows; i++) {
+        const cell = document.createElement('div');
+        cell.style.background = '#000';
+        cell.style.opacity = '0';
+        cell.style.transition = 'opacity 0.35s ease';
+        overlay.appendChild(cell);
+        cells.push(cell);
+    }
+
+    // Ordine casuale di comparsa dei quadrati (al contrario del gate: qui compaiono, non spariscono)
+    for (let i = cells.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cells[i], cells[j]] = [cells[j], cells[i]];
+    }
+
+    const delayStep = 18;
+    cells.forEach((cell, index) => {
+        setTimeout(() => { cell.style.opacity = '1'; }, index * delayStep);
+    });
+
+    setTimeout(() => {
+        mostraTerminaleEliminazione(overlay);
+    }, cells.length * delayStep + 400);
+}
+
+function mostraTerminaleEliminazione(overlay) {
+    overlay.innerHTML = '';
+    overlay.style.background = '#000';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.padding = '20px';
+
+    const testo = document.createElement('div');
+    testo.style.fontFamily = "'Press Start 2P', monospace";
+    testo.style.fontSize = '14px';
+    testo.style.lineHeight = '2';
+    testo.style.color = '#33ff33';
+    testo.style.textAlign = 'center';
+    testo.style.maxWidth = '90vw';
+    testo.innerHTML = '<span id="cmd-typed"></span><span class="cmd-cursor">_</span>';
+    overlay.appendChild(testo);
+
+    const typed = testo.querySelector('#cmd-typed');
+    const righe = ["PAGINA ELIMINATA DALL'AMMINISTRAZIONE", "DR. A. S. "];
+    let riga = 0, carattere = 0;
+
+    function scrivi() {
+        if (riga >= righe.length) {
+            // Aggiunge la parte censurata, esattamente come nel login iniziale
+            const censura = document.createElement('span');
+            censura.className = 'censor-black';
+            censura.textContent = 'Spisso';
+            typed.appendChild(censura);
+
+            // Dopo una pausa, reset completo: rimuove l'accesso salvato sul
+            // dispositivo e ricarica il sito, richiedendo di nuovo la password
+            setTimeout(() => {
+                localStorage.removeItem('pocchia-unlocked');
+                location.reload();
+            }, 2600);
+            return;
+        }
+
+        if (carattere === 0 && riga > 0) {
+            typed.appendChild(document.createElement('br'));
+        }
+
+        typed.appendChild(document.createTextNode(righe[riga][carattere]));
+        carattere++;
+
+        if (carattere >= righe[riga].length) {
+            riga++;
+            carattere = 0;
+        }
+
+        setTimeout(scrivi, 45);
+    }
+
+    scrivi();
 }
 
 // ══════════════════════════════════════════════════════
