@@ -558,6 +558,20 @@ sup a { color: var(--link); }
   user-select: none;
   padding: 0 4px;
 }
+
+#reveal-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 999998;
+  display: grid;
+  pointer-events: none;
+}
+
+#reveal-grid .reveal-cell {
+  background: #000;
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
 </style>
 
 <div id="pw-gate">
@@ -587,12 +601,54 @@ sup a { color: var(--link); }
     }).join('');
   }
 
+  function revealSite(withAnimation) {
+    gate.classList.add('hidden');
+
+    if (!withAnimation) {
+      document.body.style.overflow = '';
+      return;
+    }
+
+    var cols = 12;
+    var rows = 8;
+    var grid = document.createElement('div');
+    grid.id = 'reveal-grid';
+    grid.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
+    grid.style.gridTemplateRows = 'repeat(' + rows + ', 1fr)';
+
+    var cells = [];
+    for (var i = 0; i < cols * rows; i++) {
+      var cell = document.createElement('div');
+      cell.className = 'reveal-cell';
+      grid.appendChild(cell);
+      cells.push(cell);
+    }
+    document.body.appendChild(grid);
+
+    // Ordine casuale di scomparsa dei quadrati
+    for (var i = cells.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = cells[i]; cells[i] = cells[j]; cells[j] = tmp;
+    }
+
+    var delayStep = 18;
+    cells.forEach(function (cell, index) {
+      setTimeout(function () {
+        cell.style.opacity = '0';
+      }, index * delayStep);
+    });
+
+    setTimeout(function () {
+      document.body.style.overflow = '';
+      grid.remove();
+    }, cells.length * delayStep + 400);
+  }
+
   async function tryUnlock() {
     var hash = await sha256(input.value);
     if (hash === GATE_PASSWORD_HASH) {
       localStorage.setItem('pocchia-unlocked', 'true');
-      gate.classList.add('hidden');
-      document.body.style.overflow = '';
+      revealSite(true);
     } else {
       error.classList.add('show');
       input.value = '';
