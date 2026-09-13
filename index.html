@@ -569,7 +569,7 @@ sup a { color: var(--link); }
 
 <script>
 (function () {
-  var GATE_PASSWORD = "spissecchione";
+  var GATE_PASSWORD_HASH = "f02d6ba1092e638640c80984b108141f03debe60cda9202dfb8eb8bc4210ad21";
   var gate = document.getElementById('pw-gate');
   var input = document.getElementById('pw-input');
   var error = document.getElementById('pw-error');
@@ -580,8 +580,16 @@ sup a { color: var(--link); }
     document.body.style.overflow = 'hidden';
   }
 
-  function tryUnlock() {
-    if (input.value === GATE_PASSWORD) {
+  async function sha256(text) {
+    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+    return Array.from(new Uint8Array(buf)).map(function (b) {
+      return b.toString(16).padStart(2, '0');
+    }).join('');
+  }
+
+  async function tryUnlock() {
+    var hash = await sha256(input.value);
+    if (hash === GATE_PASSWORD_HASH) {
       sessionStorage.setItem('pocchia-unlocked', 'true');
       gate.classList.add('hidden');
       document.body.style.overflow = '';
