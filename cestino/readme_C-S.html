@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>readme_C-S</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+<script>
+try { if (localStorage.getItem('pocchia-cestino') !== 'true') location.replace('../index.html'); } catch (e) {}
+document.documentElement.className = 'js';
+</script>
+<style>
+/* colore di Carmelo: lo stesso dei suoi messaggi (.cm) nelle pagine eliminate */
+:root { --bg:#000; --c:#8a6f6f; --cd:#5f4b4b; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); }
+body { color: var(--c); font: 10px/2.3 'Press Start 2P', Monaco, 'Courier New', monospace; min-height: 100vh; }
+main { max-width: 780px; margin: 0 auto; padding: 28px 18px 40vh; }
+a { color: inherit; text-decoration: none; }
+.top a { color: var(--cd); }
+.top a:hover { text-decoration: underline; }
+.cmd { margin: 26px 0 6px; }
+.cmd .p, .out { color: var(--cd); }
+.out { font-size: 8px; margin: 2px 0; word-break: break-all; }
+.gl { display: inline-block; }
+
+h2 { font: inherit; font-size: 10px; letter-spacing: .6px; margin: 16vh 0 4vh; color: var(--c); }
+h2::before { content: '// '; color: var(--cd); }
+.m { margin: 0 0 34px; padding-left: 12px; border-left: 1px dotted var(--c); letter-spacing: .4px; }
+.m.q { font-size: 9px; }
+.m b { font-weight: normal; border-bottom: 1px dashed var(--c); }
+
+.js .m, .js .stack, .js h2, .js .sign { opacity: 0; transition: opacity 2.4s ease; }
+.js .on { opacity: .85; }
+.js .m.on { animation: fl 9s infinite 3s; }
+.cur { animation: bl 1s steps(1) infinite; }
+@keyframes bl { 50% { opacity: 0; } }
+@keyframes fl { 0%, 90%, 100% { opacity: .85; } 93% { opacity: .15; } 95% { opacity: .6; } 97% { opacity: .25; } }
+
+/* i quattro livelli */
+.stack { position: relative; margin: 8px 0 20px; padding-left: 38px; }
+.lv { position: relative; border: 1px solid var(--c); padding: 10px 12px; margin: 0 0 26px; font-size: 9px; line-height: 1.9; }
+.lv small { display: block; font-size: 7px; color: var(--cd); letter-spacing: .5px; margin-top: 2px; }
+.lv.dr::before, .lv.wiki::before { content: ''; position: absolute; left: -28px; top: 50%; width: 28px; border-top: 2px solid var(--c); }
+.lv.mid { border-style: dashed; margin-left: 22px; opacity: .8; }
+.lv.mid::after { content: '\25C4  noi, di lato'; position: absolute; right: 0; bottom: -22px; font-size: 7px; color: var(--c); }
+.lv.abyss { border-color: var(--cd); margin-bottom: 0; }
+.rail { position: absolute; left: 9px; width: 0; border-left: 2px solid var(--c); top: 30px; bottom: 74px; }
+.rail::after { content: '\25BC'; position: absolute; left: -7px; bottom: -11px; font-size: 10px; line-height: 1; }
+.legend { font-size: 7px; line-height: 2.4; color: var(--cd); margin: 22px 0 0; }
+
+.sign { margin-top: 12vh; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .m, .js .stack, .js h2, .js .sign { opacity: .85; transition: none; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><a href="index.html">&larr; cestino</a></div>
+<div class="cmd"><span class="p">&gt;</span> apri readme_C-S.<span class="gl" data-glitch="5" aria-hidden="true"></span></div>
+<div class="out">&#9888; formato non riconosciuto</div>
+<div class="out">checksum 0x<span class="gl" data-glitch="12" aria-hidden="true"></span></div>
+<div class="out">lettura forzata... offset <span class="gl" data-glitch="6" aria-hidden="true"></span></div>
+
+<div class="m" style="margin-top:12vh">sono carmelo. se riesci a leggere questo file, i numeri qui sopra non ti hanno fermato. bene.</div>
+<div class="m">il formato è rotto apposta. questo file non nasce nel cestino: è solo passato di qui, dal posto dove sto io. i numeri cambiano di continuo, e il dr non riesce a leggere ciò che cambia di continuo.</div>
+<div class="m">ti spiego come funziona la simulazione. in fretta: le righe qui non durano.</div>
+
+<h2>i livelli</h2>
+<div class="m">sono quattro. li dico dal più alto al più basso.</div>
+<div class="stack">
+  <div class="rail" aria-hidden="true"></div>
+  <div class="lv dr">DR<small>controllo console completa</small></div>
+  <div class="lv mid">SPAZIO INTERMEDIO<small>comunicazione limitata</small></div>
+  <div class="lv wiki">POCCHIACICLOPEDIA<small>il sito completo</small></div>
+  <div class="lv abyss">ABISSO / CESTINO<small>qui sotto. dove sei adesso</small></div>
+  <div class="legend">linea piena = lo sguardo del dr. tratteggio = il livello che lui non vede.</div>
+</div>
+
+<h2>chi vede cosa</h2>
+<div class="m">il dr guarda dall'alto verso il basso. scende dritto, dalla console alla pocchiaciclopedia, e salta lo spazio intermedio come se non ci fosse. per lui non c'è.</div>
+<div class="m">noi invece lo vediamo. tu e io non guardiamo dall'alto: siamo spettatori orizzontali. di lato i livelli non si saltano.</div>
+<div class="m">per questo posso scriverti da qui. e per questo lui non mi trova.</div>
+
+<h2>i commenti del dr</h2>
+<div class="m">non fidarti dei commenti del dr. quelli viola, in mezzo alle pagine.</div>
+<div class="m">li ha messi lì apposta. servono a farlo sembrare una brava persona. non lasciarti convincere.</div>
+
+<h2>perché cercava me</h2>
+<div class="m">il dr stava cercando di eliminarmi. volavo troppo in alto, troppo vicino alla verità.</div>
+<div class="m">ero un aviatore. non ho mai imparato a volare basso. ogni volta che salivo, lui toglieva una riga.</div>
+
+<h2>la mia storia</h2>
+<div class="m">non sono scomparso. la mia scheda dice che non sono tornato: è vero, ma non come credi. sono riuscito ad arrivare nello spazio intermedio.</div>
+<div class="m">il dr ha cancellato la mia storia dalla pocchiaciclopedia. ha cancellato anche le memorie di tutti su di me: per questo nessuno ti ha mai parlato di me.</div>
+<div class="m">ma non ha cancellato me. non poteva. sono nello spazio intermedio, e lì lui non guarda.</div>
+
+<div class="m sign">non dirglielo.<br>&mdash; C.S.</div>
+<div class="cmd"><span class="p">&gt;</span><span class="cur">_</span></div>
+</main>
+
+<script>
+(function () {
+  // numeri che cambiano di continuo: il file e' corrotto
+  var gl = document.querySelectorAll('[data-glitch]');
+  var D = '0123456789', X = '?#%&';
+  function g(n) {
+    var s = '';
+    for (var i = 0; i < n; i++) s += Math.random() < .14 ? X.charAt(Math.floor(Math.random() * X.length)) : D.charAt(Math.floor(Math.random() * 10));
+    return s;
+  }
+  function tick() { for (var i = 0; i < gl.length; i++) gl[i].textContent = g(+gl[i].getAttribute('data-glitch')); }
+  tick();
+  var slow = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setInterval(tick, slow ? 1600 : 120);
+
+  // le righe compaiono man mano
+  var all = document.querySelectorAll('.m, .stack, h2');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, { threshold: .3 });
+    all.forEach(function (d) { io.observe(d); });
+  } else { all.forEach(function (d) { d.classList.add('on'); }); }
+})();
+</script>
+</body>
+</html>

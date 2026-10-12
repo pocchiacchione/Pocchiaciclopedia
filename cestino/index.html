@@ -28,6 +28,11 @@ a { color: inherit; text-decoration: none; }
 .f:not(.locked):hover, .f:not(.locked):focus { background: var(--g); color: #000; outline: 0; }
 .f:not(.locked):hover .s { color: #000; }
 pre { margin: 18px 0; white-space: pre-wrap; word-break: break-word; font: 10px/2.2 'Press Start 2P', Monaco, 'Courier New', monospace; border-left: 3px solid var(--gd); padding-left: 14px; }
+.f.cs { color: #8a6f6f; border-left-color: #8a6f6f; }
+.f.cs .s { color: #8a6f6f; }
+.f.cs:hover, .f.cs:focus { background: #8a6f6f; color: #000; outline: 0; }
+.f.cs:hover .s, .f.cs:focus .s { color: #000; }
+.gl { display: inline-block; }
 .cur { animation: bl 1s steps(1) infinite; }
 @keyframes bl { 50% { opacity: 0; } }
 </style>
@@ -40,12 +45,23 @@ pre { margin: 18px 0; white-space: pre-wrap; word-break: break-word; font: 10px/
 <div class="out">&#9888; file eliminati dalla Pocchiaciclopedia</div>
 <a class="f" href="Le-Vere-Origini.html"><span class="n">Le-Vere-Origini.html</span><span class="s">35 KB</span></a>
 <a class="f" href="Carmelo-Spisso.html"><span class="n">Carmelo-Spisso.html</span><span class="s">9 KB</span></a>
+<a class="f cs" href="readme_C-S.html" aria-label="readme_C-S, file corrotto"><span class="n">readme_C-S.<span class="gl" data-glitch="5" aria-hidden="true">00000</span></span><span class="s"><span class="gl" data-glitch="3" aria-hidden="true">000</span> KB</span></a>
 <div class="f locked"><span class="n">Topus_Maximus_(old).ps</span><span class="s">&mdash;</span></div>
 <div class="f locked"><span class="n">T_Ciano.ps</span><span class="s">&mdash;</span></div>
 <div class="f locked"><span class="n">Leonard.ps</span><span class="s">&mdash;</span></div>
-<div class="out">5 file</div>
+<div class="out">6 file</div>
 <div class="cmd"><span class="p">&gt;</span><span class="cur">_</span></div>
 </main>
+<script>
+(function () {
+  var gl = document.querySelectorAll('[data-glitch]'), D = '0123456789', X = '?#%&';
+  function g(n) { var s = ''; for (var i = 0; i < n; i++) s += Math.random() < .14 ? X.charAt(Math.floor(Math.random() * X.length)) : D.charAt(Math.floor(Math.random() * 10)); return s; }
+  function tick() { for (var i = 0; i < gl.length; i++) gl[i].textContent = g(+gl[i].getAttribute('data-glitch')); }
+  tick();
+  var slow = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setInterval(tick, slow ? 1600 : 120);
+})();
+</script>
 
 </body>
 </html>
