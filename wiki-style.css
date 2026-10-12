@@ -536,3 +536,10 @@ sup a { color: var(--link); }
 .bio-flash { animation: bioFlash 1.8s ease-out; }
 @keyframes bioFlash { 0% { background: #fff3a3; } 100% { background: transparent; } }
 
+
+
+/* ── Pagine accorpate: sezioni dentro la stessa voce ── */
+.merged-section { margin: 0 0 30px; padding-top: 6px; border-top: 1px solid var(--border-light, #eaecf0); scroll-margin-top: 70px; }
+.merged-section:first-of-type { border-top: 0; }
+.merged-section .bio-block { scroll-margin-top: 70px; }
+.sezione-intro { font-style: italic; color: #54595d; margin: 4px 0 12px; }

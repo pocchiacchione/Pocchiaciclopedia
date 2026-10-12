@@ -164,6 +164,7 @@ function renderPage(name) {
 
 function updateSidebar() {
   const container = document.getElementById("sidebar-pages");
+  if (!container) return; // elenco "Tutte le pagine" rimosso dalla barra laterale
   container.innerHTML = "";
   for (const name in pages) {
     if (name === "Main") continue;

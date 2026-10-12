@@ -1,5 +1,6 @@
 (function () {
   var GATE_PASSWORD_HASH = "ed34fd15a17670794b866faafc385501befb47fbd8956cd749e1b4196542c475";
+  var SECRET_HASH = "7b103663acf0f1cd98aca93a06675941a46b04eac2c8a532802f9e122e06716a"; // codice segreto: sblocca la pagina del cestino
   var gate = document.getElementById('pw-gate');
   var input = document.getElementById('pw-input');
   var error = document.getElementById('pw-error');
@@ -9,6 +10,14 @@
   } else {
     document.body.style.overflow = 'hidden';
   }
+
+  function showCestino() {
+    var el = document.getElementById('sb-cestino');
+    if (el) el.style.display = '';
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('pocchia-cestino') === 'true') showCestino();
+  });
 
   async function sha256(text) {
     var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
@@ -62,7 +71,13 @@
 
   async function tryUnlock() {
     var hash = await sha256(input.value);
-    if (hash === GATE_PASSWORD_HASH) {
+    if (hash === SECRET_HASH) {
+      localStorage.setItem('pocchia-unlocked', 'true');
+      localStorage.setItem('pocchia-cestino', 'true');
+      showCestino();
+      // il codice segreto apre la modalità admin (console)
+      window.location.href = 'admin/index.html';
+    } else if (hash === GATE_PASSWORD_HASH) {
       localStorage.setItem('pocchia-unlocked', 'true');
       revealSite(true);
     } else {

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cestino</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+<script>
+try { if (localStorage.getItem('pocchia-cestino') !== 'true') location.replace('../index.html'); } catch (e) {}
+</script>
+<style>
+:root { --bg:#000; --g:#33ff33; --gd:#1f9e1f; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); }
+body { color: var(--g); font: 11px/2.3 'Press Start 2P', Monaco, 'Courier New', monospace; min-height: 100vh; }
+main { max-width: 780px; margin: 0 auto; padding: 28px 18px 40vh; }
+a { color: inherit; text-decoration: none; }
+.dim { color: var(--gd); }
+.top a:hover { text-decoration: underline; }
+.cmd { margin: 26px 0 6px; }
+.cmd .p { color: var(--gd); }
+.out { margin: 4px 0 4px 0; font-size: 9px; color: var(--gd); }
+.f { display: flex; gap: 14px; align-items: baseline; padding: 6px 10px; border-left: 3px solid var(--gd); margin: 6px 0; }
+.f .n { flex: 1; word-break: break-all; }
+.f .s { font-size: 9px; color: var(--gd); }
+.f.locked { opacity: .5; cursor: default; }
+.f:not(.locked):hover, .f:not(.locked):focus { background: var(--g); color: #000; outline: 0; }
+.f:not(.locked):hover .s { color: #000; }
+pre { margin: 18px 0; white-space: pre-wrap; word-break: break-word; font: 10px/2.2 'Press Start 2P', Monaco, 'Courier New', monospace; border-left: 3px solid var(--gd); padding-left: 14px; }
+.cur { animation: bl 1s steps(1) infinite; }
+@keyframes bl { 50% { opacity: 0; } }
+</style>
+</head>
+<body>
+<main>
+<div class="top"><a class="dim" href="../admin/index.html">&larr; admin</a></div>
+<div class="cmd"><span class="p">&gt;</span> cd cestino/</div>
+<div class="cmd"><span class="p">&gt;</span> ls</div>
+<div class="out">&#9888; file eliminati dalla Pocchiaciclopedia</div>
+<a class="f" href="Le-Vere-Origini.html"><span class="n">Le-Vere-Origini.html</span><span class="s">35 KB</span></a>
+<a class="f" href="Carmelo-Spisso.html"><span class="n">Carmelo-Spisso.html</span><span class="s">9 KB</span></a>
+<div class="f locked"><span class="n">Topus_Maximus_(old).ps</span><span class="s">&mdash;</span></div>
+<div class="f locked"><span class="n">T_Ciano.ps</span><span class="s">&mdash;</span></div>
+<div class="f locked"><span class="n">Leonard.ps</span><span class="s">&mdash;</span></div>
+<div class="out">5 file</div>
+<div class="cmd"><span class="p">&gt;</span><span class="cur">_</span></div>
+</main>
+
+</body>
+</html>

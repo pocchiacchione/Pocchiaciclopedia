@@ -69,6 +69,14 @@ const PERSONAGGI_IMG = {
   "Napoli Sporca": "img/personaggi/bandiera_napoli_sporca.jpg",
   "Terzo Principato di Napoli": "img/personaggi/bandiera_napoli_terzo.jpg",
 
+  // Organizzazioni:
+  "Clan Spisso": "img/personaggi/clan.jpg",
+  "Partito Democratico dei Puma": "img/personaggi/puma.png",
+  "Puma": "img/personaggi/puma.png",
+  "Governo Militare degli Avengers": "img/personaggi/avengers.jpg",
+  "Occupazione della Cantina di Napoli": "img/personaggi/bandiera_cantina.jpg",
+  "Stato Topista": "img/personaggi/serrano-top.jpg",
+
   // Soprannomi (stessa immagine del personaggio):
   "Rick Brick": "img/personaggi/riccardo.jpg",
   "Il Pocchia": "img/personaggi/gianluca.jpg",
