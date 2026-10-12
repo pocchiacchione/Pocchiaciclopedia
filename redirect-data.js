@@ -42,7 +42,7 @@ const REDIRECTS = {
   "anchor": "bio-mancarella"
  },
  "Ignoto di Napoli": {
-  "page": "Le Origini",
+  "page": "Protettorato del Clan Spisso e Operazione Brick",
   "anchor": "bio-ignoto-di-napoli"
  },
  "Riccardo Pascali": {
@@ -94,19 +94,19 @@ const REDIRECTS = {
   "anchor": "bio-spider-trove"
  },
  "Alex Spisso": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
+  "page": "Prima Guerra Pocchiana",
   "anchor": "bio-alex-spisso"
  },
  "Cheddar Mussolini": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
+  "page": "Prima Guerra Pocchiana",
   "anchor": "bio-cheddar-mussolini"
  },
  "Filippo Pascali": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
+  "page": "Prima Guerra Pocchiana",
   "anchor": "bio-filippo-pascali"
  },
  "Alice Sportella": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
+  "page": "Prima Guerra Pocchiana",
   "anchor": "bio-alice-sportella"
  },
  "Alessio Spisso": {
@@ -166,20 +166,20 @@ const REDIRECTS = {
   "anchor": "bio-massimo-floris"
  },
  "Rashid": {
-  "page": "Avventure in India",
+  "page": "Protettorato del Clan Spisso e Operazione Brick",
   "anchor": "bio-rashid"
  },
  "MariaTeresa Friolo": {
-  "page": "Avventure in India",
+  "page": "Protettorato del Clan Spisso e Operazione Brick",
   "anchor": "bio-mariateresa-friolo"
  },
  "Luca Pascali": {
   "page": "Caccia a Giachele",
-  "anchor": "bio-luca-pascali"
+  "anchor": null
  },
  "Figli di Filippo": {
   "page": "Caccia a Giachele",
-  "anchor": "bio-figli-di-filippo"
+  "anchor": null
  },
  "Il Ciciliano": {
   "page": "Caccia a Giachele",
@@ -215,35 +215,35 @@ const REDIRECTS = {
  },
  "Tommaso Pascali": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
-  "anchor": "bio-tommaso-pascali"
+  "anchor": null
  },
  "Massimiliano Dimitri": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
-  "anchor": "bio-massimiliano-dimitri"
+  "anchor": null
  },
  "Jerry": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
-  "anchor": "bio-jerry"
+  "anchor": null
  },
  "Nicolò Donno": {
   "page": "Grande Spaccatura degli Sbost",
-  "anchor": "bio-nicolo-donno"
+  "anchor": null
  },
  "Antonio Cazzato": {
   "page": "Grande Spaccatura degli Sbost",
-  "anchor": "bio-antonio-cazzato"
+  "anchor": null
  },
  "Maria Grazia Calò": {
   "page": "Grande Spaccatura degli Sbost",
-  "anchor": "bio-maria-grazia-calo"
+  "anchor": null
  },
  "Andrea Sponziello": {
   "page": "Grande Spaccatura degli Sbost",
-  "anchor": "bio-andrea-sponziello"
+  "anchor": null
  },
  "Flavia Aventeggiato": {
   "page": "Grande Spaccatura degli Sbost",
-  "anchor": "bio-flavia-aventeggiato"
+  "anchor": null
  },
  "Zella (Avengers)": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
@@ -278,11 +278,11 @@ const REDIRECTS = {
   "anchor": "sec-i-mille-occhi-di-ludo"
  },
  "F.O.N.D.A.M.E.N.T.A.": {
-  "page": "Le Origini",
+  "page": "Protettorato del Clan Spisso e Operazione Brick",
   "anchor": "sec-f-o-n-d-a-m-e-n-t-a"
  },
  "L.E.G.G.I.": {
-  "page": "Le Origini",
+  "page": "Protettorato del Clan Spisso e Operazione Brick",
   "anchor": "sec-l-e-g-g-i"
  },
  "Calendario Morello": {
@@ -343,7 +343,7 @@ const REDIRECTS = {
  },
  "Famiglia Pocchia": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
-  "anchor": "sec-famiglia-pocchia"
+  "anchor": null
  },
  "Prima Guerra degli Avengers": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
@@ -355,59 +355,59 @@ const REDIRECTS = {
  },
  "Filippine": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
-  "anchor": "sec-filippine"
+  "anchor": null
  },
  "Calimera": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
-  "anchor": "sec-calimera"
+  "anchor": null
  },
  "Tom and Max": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
-  "anchor": "sec-tom-and-max"
+  "anchor": null
  },
  "Gli esordi di Tom and Jerry": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
-  "anchor": "sec-gli-esordi-di-tom-and-jerry"
+  "anchor": null
  },
  "Tom and Jerry": {
   "page": "Prime due Guerre degli Avengers e Prima Comunione di Zella",
-  "anchor": "sec-tom-and-jerry"
+  "anchor": null
  },
  "Avventure di Alessio e Rashid in India": {
-  "page": "Avventure in India",
+  "page": "Protettorato del Clan Spisso e Operazione Brick",
   "anchor": "sec-avventure-di-alessio-e-rashid-in-india"
  },
  "La Prima Guerra Pocchiana": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
+  "page": "Prima Guerra Pocchiana",
   "anchor": "sec-la-prima-guerra-pocchiana"
  },
  "Nigeria Spartiana": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
+  "page": "Nigeria Spartiana e i 104 Nigeriani",
   "anchor": "sec-nigeria-spartiana"
  },
  "104 Nigeriani": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
+  "page": "Nigeria Spartiana e i 104 Nigeriani",
   "anchor": "sec-104-nigeriani"
  },
  "Raggio Nero": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
-  "anchor": "sec-raggio-nero"
+  "page": "Prima Guerra Pocchiana",
+  "anchor": null
  },
  "Governo Militare degli Avengers": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
-  "anchor": "sec-governo-militare-degli-avengers"
+  "page": "Prima Guerra Pocchiana",
+  "anchor": null
  },
  "Bomba Spissica": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
-  "anchor": "sec-bomba-spissica"
+  "page": "Prima Guerra Pocchiana",
+  "anchor": null
  },
  "Serrano": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
-  "anchor": "sec-serrano"
+  "page": "Prima Guerra Pocchiana",
+  "anchor": null
  },
  "Ducato di Serrano": {
-  "page": "Prima Guerra Pocchiana e Bomba Spissica",
-  "anchor": "sec-ducato-di-serrano"
+  "page": "Prima Guerra Pocchiana",
+  "anchor": null
  },
  "Terza Guerra degli Avengers": {
   "page": "Terza Guerra e Caduta di Napoli",
@@ -415,15 +415,15 @@ const REDIRECTS = {
  },
  "Minerale Spisso": {
   "page": "Terza Guerra e Caduta di Napoli",
-  "anchor": "sec-minerale-spisso"
+  "anchor": null
  },
  "America (Avengers)": {
   "page": "Terza Guerra e Caduta di Napoli",
-  "anchor": "sec-america-avengers"
+  "anchor": null
  },
  "Stati Uniti d'America": {
   "page": "Terza Guerra e Caduta di Napoli",
-  "anchor": "sec-stati-uniti-damerica"
+  "anchor": null
  },
  "La Cantina": {
   "page": "Terza Guerra e Caduta di Napoli",
@@ -431,7 +431,7 @@ const REDIRECTS = {
  },
  "Castri": {
   "page": "Terza Guerra e Caduta di Napoli",
-  "anchor": "sec-castri"
+  "anchor": null
  },
  "Secondo Principato di Napoli": {
   "page": "Terza Guerra e Caduta di Napoli",
@@ -463,19 +463,19 @@ const REDIRECTS = {
  },
  "I Puma": {
   "page": "Grande Spaccatura degli Sbost",
-  "anchor": "sec-i-puma"
+  "anchor": null
  },
  "Vandalismo Democratico di Serrano": {
   "page": "Grande Spaccatura degli Sbost",
-  "anchor": "sec-vandalismo-democratico-di-serrano"
+  "anchor": null
  },
  "Partito Democratico dei Puma": {
   "page": "Grande Spaccatura degli Sbost",
-  "anchor": "sec-partito-democratico-dei-puma"
+  "anchor": null
  },
  "Repubblica di Serrano": {
   "page": "Grande Spaccatura degli Sbost",
-  "anchor": "sec-repubblica-di-serrano"
+  "anchor": null
  },
  "La Grande Partita tra le Fiamme": {
   "page": "Grande Partita",
@@ -499,15 +499,15 @@ const REDIRECTS = {
  },
  "Giachele": {
   "page": "Caccia a Giachele",
-  "anchor": "sec-giachele"
+  "anchor": null
  },
  "Partito Democratico di Castri (Charlie Sbirk)": {
   "page": "Rivolta e Processo a Charlie Sbirk",
-  "anchor": "sec-partito-democratico-di-castri-charlie-sbirk"
+  "anchor": null
  },
  "Alleanza per la Verità": {
   "page": "Rivolta e Processo a Charlie Sbirk",
-  "anchor": "sec-alleanza-per-la-verita"
+  "anchor": null
  },
  "Rivolta di Castri": {
   "page": "Rivolta e Processo a Charlie Sbirk",
@@ -563,6 +563,14 @@ const REDIRECTS = {
  },
  "Proclamazione del Regno d'Italia e Unificazione": {
   "page": "Unificazione Italiana",
+  "anchor": null
+ },
+ "Avventure in India": {
+  "page": "Protettorato del Clan Spisso e Operazione Brick",
+  "anchor": "sec-avventure-di-alessio-e-rashid-in-india"
+ },
+ "Prima Guerra Pocchiana e Bomba Spissica": {
+  "page": "Prima Guerra Pocchiana",
   "anchor": null
  }
 };

@@ -33,14 +33,14 @@ const PAGES_INDEX = [
     "file": "prime-due-guerre-degli-avengers-e-prima-comunione-di-zella.html"
   },
   {
-    "name": "Avventure in India",
-    "title": "Avventure in India",
-    "file": "avventure-in-india.html"
+    "name": "Nigeria Spartiana e i 104 Nigeriani",
+    "title": "Nigeria Spartiana e i 104 Nigeriani",
+    "file": "nigeria-spartiana-e-104-nigeriani.html"
   },
   {
-    "name": "Prima Guerra Pocchiana e Bomba Spissica",
-    "title": "Prima Guerra Pocchiana e Bomba Spissica",
-    "file": "prima-guerra-pocchiana-e-bomba-spissica.html"
+    "name": "Prima Guerra Pocchiana",
+    "title": "Prima Guerra Pocchiana",
+    "file": "prima-guerra-pocchiana.html"
   },
   {
     "name": "Terza Guerra e Caduta di Napoli",
