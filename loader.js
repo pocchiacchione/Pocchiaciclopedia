@@ -6,6 +6,10 @@
   if (box) box.innerHTML = '<p style="font-family:sans-serif;color:#54595d;padding:20px">Caricamento delle pagine…</p>';
 
   Promise.all(PAGES_INDEX.map(function (e) {
+    if (e.name === 'Main') {
+      var tpl = document.getElementById('main-page');
+      return Promise.resolve(tpl ? tpl.innerHTML : '');
+    }
     if (!e.file) return Promise.resolve('');
     return fetch('pages/' + e.file).then(function (r) {
       if (!r.ok) throw new Error('pages/' + e.file + ' (' + r.status + ')');

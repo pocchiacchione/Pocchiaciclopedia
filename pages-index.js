@@ -1,10 +1,10 @@
 // Elenco delle pagine: nome, titolo e file in pages/.
+// "Main" non ha file: il suo contenuto è nel <template id="main-page"> di index.html.
 // Per aggiungere una pagina: crea pages/nome.html e aggiungi una riga qui.
 const PAGES_INDEX = [
   {
     "name": "Main",
     "title": "Pocchiaciclopedia — Pagina principale",
-    "file": "main.html",
     "wikitext": "Pagina principale di Pocchiaciclopedia."
   },
   {

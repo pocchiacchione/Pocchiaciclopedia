@@ -7,7 +7,7 @@ Pocchiaciclopedia libera (quasi).
 ```
 index.html            pagina principale (solo struttura)
 loader.js             scarica le pagine e poi avvia il sito
-pages-index.js        elenco delle pagine (Main + 18 voci)
+pages-index.js        elenco delle pagine (Main + 2 voci)
 pages/                UNA VOCE PER FILE: le 18 voci + main.html
 redirect-data.js      vecchi nomi di pagina/personaggio -> voce e sezione in cui si trovano ora
 wiki-script.js / wiki-style.css   logica e stile
