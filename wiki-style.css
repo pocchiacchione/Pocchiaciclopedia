@@ -290,7 +290,6 @@ h1.page-title {
   padding-bottom: 4px;
   margin: 26px 0 10px;
   color: #000;
-  display: flex; justify-content: space-between; align-items: baseline;
 }
 
 .wiki-article-body h3 {

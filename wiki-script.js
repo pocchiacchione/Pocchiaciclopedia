@@ -148,6 +148,7 @@ function renderPage(name) {
   if (page.content) {
     article.innerHTML = page.content;
     evidenziaPersonaggi(article);
+    precaricaImmaginiPersonaggi(article);
     if (name === 'Main') setTimeout(creaPaginaDelGiorno, 0);
     else setTimeout(() => injectCitazioni(name), 0);
   } else {
@@ -681,24 +682,55 @@ function ensureCharTooltip() {
 // a mano le estensioni.
 const ESTENSIONI_IMG_FALLBACK = ["png", "jpg", "jpeg", "webp", "gif"];
 
+// Miniatura leggera (img/personaggi/thumb/<nome>.jpg) generata dalla foto
+// originale: pesa ~30 KB invece di diversi MB, quindi compare subito.
+function percorsoMiniatura(percorso) {
+  const slash = percorso.lastIndexOf('/');
+  const dir = slash !== -1 ? percorso.slice(0, slash + 1) : '';
+  const file = slash !== -1 ? percorso.slice(slash + 1) : percorso;
+  const punto = file.lastIndexOf('.');
+  const base = punto !== -1 ? file.slice(0, punto) : file;
+  return dir + 'thumb/' + base + '.jpg';
+}
+
 function impostaImmagineConFallback(img, percorso) {
+  if (img.dataset.src === percorso) return; // già mostrata: nessun ricaricamento
+  img.dataset.src = percorso;
+
   const puntoIdx = percorso.lastIndexOf('.');
   const base = puntoIdx !== -1 ? percorso.slice(0, puntoIdx) : percorso;
   const estOriginale = puntoIdx !== -1 ? percorso.slice(puntoIdx + 1).toLowerCase() : "";
 
-  // Prova prima l'estensione dichiarata, poi le altre note, senza ripeterla.
+  // Prima la miniatura; se manca, la foto originale con le varie estensioni.
   const ordine = [estOriginale, ...ESTENSIONI_IMG_FALLBACK].filter((e, i, arr) => e && arr.indexOf(e) === i);
+  const candidati = [percorsoMiniatura(percorso)].concat(ordine.map(e => base + '.' + e));
   let tentativo = 0;
 
   img.onerror = function () {
     tentativo++;
-    if (tentativo < ordine.length) {
-      img.src = base + '.' + ordine[tentativo];
+    if (tentativo < candidati.length) {
+      img.src = candidati[tentativo];
     } else {
       img.onerror = null; // nessun formato ha funzionato, ci si ferma
     }
   };
-  img.src = ordine.length ? (base + '.' + ordine[0]) : percorso;
+  img.src = candidati[0];
+}
+
+// Precarica in anticipo le miniature dei nomi presenti nella pagina, così
+// quando si passa il mouse l'immagine è già nella cache del browser.
+function precaricaImmaginiPersonaggi(root) {
+  const map = getPersonaggiMap();
+  if (!map || !root) return;
+  const visti = new Set();
+  root.querySelectorAll('.char-name').forEach(sp => {
+    const nome = sp.dataset.char;
+    if (!nome || visti.has(nome) || !map[nome]) return;
+    visti.add(nome);
+    const im = new Image();
+    im.decoding = 'async';
+    im.src = percorsoMiniatura(map[nome]);
+  });
 }
 
 function showCharTooltip(target, nome) {
