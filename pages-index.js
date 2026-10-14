@@ -16,5 +16,10 @@ const PAGES_INDEX = [
     "name": "Età Classica Pocchiana",
     "title": "Età Classica Pocchiana",
     "file": "eta-classica-pocchiana.html"
+  },
+  {
+    "name": "Medioevo Pocchiano",
+    "title": "Medioevo Pocchiano",
+    "file": "medioevo-pocchiano.html"
   }
 ];
